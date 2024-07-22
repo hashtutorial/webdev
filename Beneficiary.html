@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Beneficiary</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f3f7;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    background-color: #3f51b5;
+    border-color: #3f51b5;
+}
+
+.btn-primary:hover {
+    background-color: #303f9f;
+}
+
+.bg-custom {
+    background-color: #f8f9fa; 
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+}
+
+.text-primary {
+    color: #3f51b5;
+    font-size: 27px;
+}
+
+.bg-custom {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    margin-top: 100px;
+    font-size: 17px;
+}
+</style>
+<link rel="stylesheet" href="nav3.css">
+</head>
+<body>
+    <img src="logo.png" alt="" class="logo">
+    <div class="overlay overlay-slide-left" id="overlay">
+        <nav>
+            <ul>
+                <li id="nav-1" class="slide-out-1 center">
+                    <a href="acc.php" class="center" >My Account</a>
+                </li>
+                <li id="nav-2" class="slide-out-2 center">
+                    <a href="Financial_history.php" class="center">Financial History</a>
+                </li>
+                <li id="nav-3" class="slide-out-3 center">
+                    <a href="Customer_support.html" class="center">Customer Support</a>
+                </li>
+                <li id="nav-4" class="slide-out-4 center">
+                    <a href="Beneficiary.html" class="center" id="on">Add Beneficiary</a>
+                </li>
+                <li id="nav-5" class="slide-out-5 center">
+                    <a href="project_DB.php" class="center">Logout</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="hamburger-menu" id="hamburger-menu">
+        <div class="menu-bar1"></div>
+        <div class="menu-bar2"></div>
+        <div class="menu-bar3"></div>
+    </div>
+    <div class="con">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card bg-custom">
+                    <div class="card-body">
+                        <h2 class="card-title text-center text-primary mb-4">Beneficiary Details</h2>
+                        <form id="Beneficiary" action="beneficiary.php" method="POST">
+                            <div class="form-group">
+                                <label for="accountID">Beneficiary Account ID</label>
+                                <input type="text" class="form-control" id="accountID" name="accountID" required style="font-size: 15px;">
+                            </div>
+                            <div class="form-group">
+                                <label for="relationship">Relationship</label>
+                                <input type="text" class="form-control" id="rel" name="relationship" required style="font-size: 15px;">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Add Beneficiary</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const hamburgerMenu = document.querySelector("#hamburger-menu");
+        const overlay = document.querySelector("#overlay");
+        const nav1 = document.querySelector("#nav-1");
+        const nav2 = document.querySelector("#nav-2");
+        const nav3 = document.querySelector("#nav-3");
+        const nav4 = document.querySelector("#nav-4");
+        const nav5 = document.querySelector("#nav-5");
+        const navItems = [nav1, nav2, nav3, nav4, nav5];
+
+        function navAnimation(val1, val2) {
+            navItems.forEach((nav, i) => {
+                nav.classList.replace(`slide-${val1}-${i + 1}`, `slide-${val2}-${i + 1}`);
+            });
+        }
+
+        function toggleNav() 
+        {
+            hamburgerMenu.classList.toggle("active");
+            overlay.classList.toggle("overlay-active");
+
+            if (overlay.classList.contains("overlay-active")) {
+                overlay.classList.replace("overlay-slide-left", "overlay-slide-right");
+                navAnimation("out", "in");
+            } else {
+                overlay.classList.replace("overlay-slide-right", "overlay-slide-left");
+                navAnimation("in", "out");
+            }
+        }
+        hamburgerMenu.addEventListener("click", toggleNav);
+        navItems.forEach((nav) => {
+            nav.addEventListener("click", toggleNav);
+        });
+
+    </script>
+</body>
+</html>

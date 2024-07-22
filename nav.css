@@ -1,0 +1,270 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+* 
+{
+  box-sizing: border-box;
+  font-family:"Nunito",sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html 
+{
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+a:link,
+a:visited {
+  color: #000; 
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+a:hover,
+a:active,#on {
+  color: #ffc107; 
+}
+
+
+
+.center 
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section 
+{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  text-align: center;
+  color: #fff;
+}
+h1
+ {
+  font-size: 3rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 0.5rem 1rem;
+}
+
+section#home {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("pics/pexels-croberin-1422408.jpg") no-repeat center center / cover;
+}
+section#about {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("pics/pexels-markusspiske-316401\ \(1\).jpg") no-repeat center center / cover;
+}
+section#achievements {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("pics/pexels-michael-steinberg-95604-321463.jpg") no-repeat center center / cover;
+}
+section#team 
+{
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("pics/pexels-fauxels-3183172.jpg") no-repeat center center / cover;
+}
+
+section#contact {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80") no-repeat center center / cover;
+}
+
+.overlay 
+{
+  z-index: 9;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.overlay-slide-right
+ {
+  transition: all 0.4s ease-in-out;
+  transform: translateX(0);
+}
+
+.overlay-slide-left
+ {
+  transition: all 0.8s ease-in-out;
+  transform: translateX(-100%);
+}
+
+
+nav ul {
+  height: 100vh;
+  list-style: none;
+}
+
+nav ul li {
+  height: 20%;
+}
+
+nav li:nth-of-type(1) 
+{
+  background-color: #34495e; 
+}
+
+nav li:nth-of-type(2) {
+  background-color: #2c3e50;
+}
+
+nav li:nth-of-type(3) {
+  background-color: #34495e;
+}
+
+nav li:nth-of-type(4) {
+
+  background-color: #2e4053;
+}
+
+nav li:nth-of-type(5) {
+  background-color: #2c3e50;
+}
+
+nav li a 
+{
+  letter-spacing: 0.4rem;
+  font-size: 2rem;
+}
+
+nav li a:hover,
+nav li a:active {
+  transform: scale(1.2);
+}
+.slide-in-1 {
+  animation: slide-in 0.4s linear 0.2s both;
+}
+
+.slide-in-2 {
+  animation: slide-in 0.4s linear 0.4s both;
+}
+
+.slide-in-3 {
+  animation: slide-in 0.4s linear 0.6s both;
+}
+
+.slide-in-4 {
+  animation: slide-in 0.4s linear 0.8s both;
+}
+
+.slide-in-5 {
+  animation: slide-in 0.4s linear 1s both;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+
+
+.slide-out-1 {
+  animation: slide-out 0.3s linear 0.5s both;
+}
+
+.slide-out-2 {
+  animation: slide-out 0.3s linear 0.4s both;
+}
+
+.slide-out-3 {
+  animation: slide-out 0.3s linear 0.3s both;
+}
+
+.slide-out-4 {
+  animation: slide-out 0.3s linear 0.2s both;
+}
+
+.slide-out-5 {
+  animation: slide-out 0.3s linear 0.1s both;
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+
+.hamburger-menu 
+{
+  position: fixed;
+  top: 1rem;
+  right: 2rem;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.menu-bar1,
+.menu-bar2,
+.menu-bar3 {
+  width: 3.5rem;
+  height: 0.2rem;
+  background-color: whitesmoke;
+  margin: 0.8rem 0;
+  transition: 0.4s;
+}
+
+.menu-bar2 {
+  width: 2rem;
+  margin-left: auto;
+}
+
+.active .menu-bar1 {
+  transform: rotate(-45deg) translate(-0.7rem, 0.8rem);
+}
+
+.active .menu-bar2 {
+  opacity: 0;
+}
+
+.active .menu-bar3 {
+  transform: rotate(45deg) translate(-0.6rem, -0.8rem);
+}
+.logo 
+{
+  position: absolute;
+  top: 1rem; 
+  left: 10px; 
+  width: 260px; 
+  height: auto; 
+  z-index: 1;
+}
+
+
+h1 {
+  font-size: 3rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 0.5rem 1rem;
+}
+
+@media (max-width: 52em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media (max-width: 37em) {
+  .hamburger-menu {
+    top: 0.5rem;
+    right: 1rem;
+  }
+  .logo {
+    top: 1rem;
+    left: 1rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+}
